@@ -26,7 +26,7 @@ snake_size = 5
 
 
 tk = Tk()
-tk.title("Игра Змейка на Python")
+tk.title("Змейка by Andrey|По видео гайду от Гоша Дударь.")
 tk.resizable(0,0)
 tk.wm_attributes("-topmost",1)
 canvas = Canvas(tk, width=game_width, height=game_height, bd=0, highlightthickness=0)
@@ -132,7 +132,7 @@ while Game_Running:
 
 def fun_nothing(event):
     pass
-canvas.bind_all("<KeyPress-Left>", fun_nothing)
-canvas.bind_all("<KeyPress-Right>", fun_nothing)
-canvas.bind_all("<KeyPress-Up>", fun_nothing)
-canvas.bind_all("<KeyPress-Down>", fun_nothing)
+canvas.bind_all("<KeyPress-A>", fun_nothing)
+canvas.bind_all("<KeyPress-D>", fun_nothing)
+canvas.bind_all("<KeyPress-W>", fun_nothing)
+canvas.bind_all("<KeyPress-S>", fun_nothing)
