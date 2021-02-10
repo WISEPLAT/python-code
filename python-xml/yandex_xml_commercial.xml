@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<realty-feed xmlns="http://webmaster.yandex.ru/schemas/feed/realty/2010-06">
+     <generation-date>2010-12-11T12:00:00+04:00</generation-date>   
+
+<!--Коммерческая недвижимость-->     
+<offer internal-id="1">
+<type>аренда</type>
+<category>commercial</category>
+<commercial-type>office</commercial-type>
+<commercial-building-type>business center</commercial-building-type>
+<creation-date>2013-11-22T12:25:20+04:00</creation-date>
+<location>
+  <country>Россия</country>
+  <district>Санкт-Петербург</district>
+  <locality-name>г. Санкт-Петербург</locality-name>
+  <sub-locality-name>Центральный</sub-locality-name>
+  <address>Невский пр., 35, лит. А</address>
+<metro>
+          <name>Гостиный двор</name>
+          <time-on-foot>1</time-on-foot>
+       </metro>
+</location>
+<sales-agent>
+   <phone>+78121234567</phone>
+   <category>agency</category>
+   <organization>Успех</organization>
+   <url>http://commer.ru/spb/</url>
+   <photo>http://commer.ru/new/logo.png</photo>
+</sales-agent>
+<price>
+    <value>276800</value>
+    <currency>RUB</currency>
+    <period>month</period>
+    <taxation-form>НДС</taxation-form>
+</price>
+<commission>0</commission>
+<security-payment>100</security-payment>
+<utilities-included>true</utilities-included>
+<electricity-included>true</electricity-included>
+<deal-status>direct rent</deal-status>
+<area>
+  <value>138.4</value>
+  <unit>кв. м</unit>
+</area>
+<image>http://commer.ru/image/1.jpg</image>
+<renovation>с отделкой</renovation>
+<quality>отличное</quality>
+<description>Офисный блок состоит из 3 помещений с мансардными окнами: зал open-space 105,3 кв. м и еще 2 помещения (16.7 и 16.4 кв. м)</description>
+<rooms>1</rooms>
+<internet>true</internet>
+<air-conditioner>true</air-conditioner>
+<ventilation>true</ventilation>
+<fire-alarm>true</fire-alarm>
+<heating-supply>true</heating-supply>
+<electricity-supply>true</electricity-supply>
+<floor>4</floor>
+<floors-total>6</floors-total>
+<building-name>Невский 38</building-name>
+<office-class>A</office-class>
+<built-year>2004</built-year>
+<access-control-system>true</access-control-system>
+<twenty-four-seven>true</twenty-four-seven>
+<lift>true</lift>
+<security>true</security>
+</offer>
+</realty-feed>
