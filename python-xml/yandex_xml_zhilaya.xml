@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<realty-feed xmlns="http://webmaster.yandex.ru/schemas/feed/realty/2010-06">
+     <generation-date>2010-12-11T12:00:00+04:00</generation-date>   
+
+<!-- Квартира на вторичном рынке -->     
+<offer internal-id="1245">         
+<type>продажа</type>         
+<property-type>жилая</property-type>         
+<category>квартира</category>   
+<deal-status>первичная продажа вторички</deal-status>               
+<creation-date>2010-11-13T12:32:45+04:00</creation-date>
+<location>             
+  <country>Россия</country>             
+  <locality-name>Москва</locality-name>             
+  <address>Яузская улица, 27</address> 
+  <apartment>135</apartment> 
+  <metro>
+          <name>Китай-город</name>
+          <time-on-foot>10</time-on-foot>
+          <time-on-transport>5</time-on-transport>
+  </metro>       
+</location>         
+<sales-agent>
+<category>agency</category>             
+  <phone>+74951234567</phone>
+</sales-agent>     
+<price>     
+  <value>4000000</value>        
+  <currency>RUR</currency> 
+</price>
+<area>     
+  <value>56</value>     
+  <unit>кв. м</unit> 
+</area> 
+<rooms>1</rooms>
+<rooms-offered>1</rooms-offered>
+<floor>12</floor>
+<yandex-building-id>12345</yandex-building-id>
+<yandex-house-id>54321</yandex-house-id></offer> 
+
+<!-- Аренда комнаты -->     
+<offer internal-id="3">         
+<type>аренда</type>         
+<property-type>жилая</property-type>         
+<category>комната</category>               
+<creation-date>2010-11-13T12:32:45+04:00</creation-date>
+<location>             
+  <country>Россия</country>             
+  <region>Ленинградская область</region>             
+  <district>Выборгский район</district>             
+  <locality-name>Выборг</locality-name>             
+  <address>Cторожевой башни, 2</address>   
+  <apartment>16</apartment>       
+</location>          
+<sales-agent>             
+  <phone>+79104565459</phone>             
+  <category>владелец</category>         
+</sales-agent>
+<image>http://yandex.ru/image/1.jpg</image>  
+<price>     
+  <value>15000</value>        
+  <currency>RUR</currency>
+  <period>месяц</period> 
+</price>
+<rent-pledge>да</rent-pledge>
+<area>     
+  <value>140</value>    
+  <unit>кв. м</unit> 
+</area>
+<room-space>
+  <value>15</value>
+  <unit>кв. м</unit>
+</room-space>
+<living-space>
+  <value>15</value>
+  <unit>кв. м</unit>   
+</living-space> 
+<rooms>5</rooms>
+<rooms-offered>1</rooms-offered>
+<floor>12</floor>
+</offer>
+
+<!-- Гараж -->     
+<offer internal-id="15">         
+<type>продажа</type>                  
+<category>гараж</category>  
+<garage-type>гараж</garage-type>                    
+<creation-date>2017-03-22T10:10:05+04:00</creation-date>
+
+<location>             
+  <country>Россия</country>
+  <region>Московская область</region>             
+  <locality-name>Протвино</locality-name>             
+</location>          
+<sales-agent>
+<category>agency</category>             
+  <phone>+74952203206</phone>             
+</sales-agent>     
+<price>     
+  <value>600000</value>        
+  <currency>RUR</currency> 
+</price>
+<area>     
+  <value>20</value>     
+  <unit>кв. м</unit> 
+</area>
+<building-type>железобетонный</building-type>
+<heating-supply>да</heating-supply>
+<electricity-supply>да</electricity-supply>
+<water-supply>нет</water-supply>
+<inspection-pit>нет</inspection-pit>
+<cellar>да</cellar>
+</offer>
+</realty-feed>
