@@ -1,0 +1,19 @@
+<TetrisGame>:
+    FloatLayout:
+        size: self.parent.width, self.parent.height
+        canvas:
+            Rectangle:
+                source: 'img/bg.jpg'
+                size: self.size
+            Rectangle:
+                source: 'img/bg2.jpg'
+                pos: 20, 20
+                size: self.width/20*12, self.height-40
+
+    Label:
+        font_size: 70
+        font_name: 'font/font.ttf'
+        center_x: root.width / 20 *16
+        color: [1,0,0,1]
+        top: root.top
+        text: "TETRIS"
