@@ -1,0 +1,23 @@
+{% extends "knowledge_base\base.html" %}
+{% load static %}
+
+{% block links %}
+<link href="{% static 'backtesting_app/css/form.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block main %}
+<div id="forms">
+            <form method="post">
+                {% csrf_token %}
+                {% for key, value in config.items %}
+                    <label for="{{ key }}">{{ key }}</label><br>
+                    <input type="text" id="{{ key }}" name="{{ key }}" value="{{ value }}"><br>
+                {% endfor %}
+                {{ time.as_p }}
+                <span>{{ error }}</span>
+                <button type="submit" class="sbm-btn">{{ button }}</button>
+            </form>
+        </div>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+# trade-dealer params
+ticker: MOEX
+class_code: TQBR
+order_book_depth: 10
+candle_interval: 15m
+window_size: 1h
+decision_interval_s: 20
+
+# algorithm-specific params
+long_ema_period_d: 7
+short_ema_period_d: 1

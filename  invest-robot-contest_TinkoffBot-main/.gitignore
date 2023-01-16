@@ -1,0 +1,4 @@
+*.csv
+*.ods
+tesfile.py
+settings.py

@@ -1,0 +1,29 @@
+{% extends "knowledge_base/base.html" %}
+{% load static %}
+{% block head %}
+    <title>База знаний</title>
+
+{% endblock %}
+
+{% block links %}
+    <link href="{% static 'knowledge_base/css/dropdown.css' %}" rel="stylesheet">
+    <script src="{% static 'knowledge_base/js/dropdown.js' %}"></script>
+{% endblock %}
+
+
+{% block sidemenu %}
+<div class="sidenav">
+           <a href="{% url 'info_about' %}">О проекте</a>
+           <button class="dropbtn" onclick="dropDown()">Стратегии</button>
+          <div id="stratsDropdown" class="dropdown-container">
+              {% for strat in Strategies %}
+                <a href="{% url 'info_strats' strat.id %}">{{ strat.name }}</a>
+              {% endfor %}
+          </div>
+           <a href="{% url 'info_contacts' %}">Контакты</a>
+           </div>
+{% endblock %}
+
+{% block main %}
+
+{% endblock %}

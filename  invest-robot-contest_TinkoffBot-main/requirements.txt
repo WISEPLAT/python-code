@@ -1,0 +1,6 @@
+grpcio==1.46.3
+protobuf==3.20.1
+python-dateutil==2.8.2
+six==1.16.0
+tinkoff==0.1.1
+tinkoff-investments==0.2.0b27

@@ -1,0 +1,17 @@
+{% extends "knowledge_base/info.html" %}
+{% load static %}
+{% block head %}
+    <Title>Стратегии</Title>
+    <link href="{% static 'knowledge_base/css/strategies.css' %}" rel="stylesheet">
+{% endblock%}
+
+{% block main %}
+<div class="strategy">
+    <h1>{{ Strategy.Name }}</h1>
+    <p>Описание:<br>{{ Strategy.Description }}<br>
+       <br>Лучшая бумага: {{ Strategy.Best_stock}}
+       <br>Лучший результат: {{ Strategy.Best_profit}}
+    </p>
+    <a href="{% url 'backtest_config' Strategy.ID %}">Протестировать?</a>
+</div>
+{% endblock %}

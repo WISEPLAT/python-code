@@ -1,0 +1,13 @@
+[
+{"exchange": "SPB", "ticker": "AWH"},
+{"exchange": "SPB", "ticker": "VEON"},
+{"exchange": "SPB", "ticker": "SLDB"},
+{"exchange": "SPB", "ticker": "KOPN"},
+
+{"exchange": "MOEX", "ticker": "ORUP"},
+{"exchange": "MOEX", "ticker": "APTK"},
+{"exchange": "MOEX", "ticker": "UWGN"},
+{"exchange": "MOEX", "ticker": "ETLN"},
+{"exchange": "MOEX", "ticker": "RNFT"},
+{"exchange": "MOEX", "ticker": "MTLR"}
+]

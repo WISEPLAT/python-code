@@ -1,0 +1,99 @@
+nav ul {
+  list-style-type: none;
+  margin: 0 0 5px;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+nav li {
+  float: left;
+  border-right: 1px solid #bbb;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.centered {
+  position: absolute;
+  display: inline-block;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+/* Change the link color to #111 (black) on hover */
+nav li a:hover {
+  background-color: #111;
+}
+
+nav li:last-child {
+  border-right: none;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+/*Side navigation*/
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 47px;
+  left: 0;
+  background-color: whitesmoke;
+  overflow-x: hidden;
+  padding-top: 50px;
+  border-right: 1px solid #bbb;
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+.sidenav a, .dropbtn, .dropdown-container a  {
+  padding: 6px 6px 6px 18%;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  background: white;
+  border: none;
+}
+
+.sidenav a:hover, .dropbtn:hover {
+  color: black;
+  cursor: pointer;
+}
+
+
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+}
+
+.show {
+  display: block;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

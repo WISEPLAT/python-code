@@ -1,0 +1,7 @@
+.idea
+venv
+__pycache__
+*.log
+test_history
+data/*
+settings_secret.ini

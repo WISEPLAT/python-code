@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2> Песочница </h2>
+<button type="button" class="btn btn-outline-success  btn-block sandbox-open" ><i class="bi-bag-plus"></i> Открыть счет</button>
+
+<br>
+<br>
+
+<div class="accordion" id="accordionExample">
+    {% for id, account in sandbox_accounts.items() %}
+        <div class="accordion-item">
+            <div class="btn-toolbar justify-content-between" role="toolbar">
+
+                <h2 class="accordion-header " style="width: 85%" id="heading{{ id }}">
+                    <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ id }}" aria-expanded="fasle" aria-controls="collapse{{ id }}">
+                        {{ id }}
+                    </button>
+                </h2>
+                <button type="button" style="width: 15%" class="btn btn-outline-danger  btn-block sandbox-close" id="{{ id }}" ><i class="bi-trash"></i> Закрыть счет</button>
+            </div>
+
+        <div id="collapse{{ id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ id }}" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <div class="container">
+                    <h5>Информация по счёту:</h5>
+                        {% for account_key, value in account.info.items() %}
+                            <div class="row">
+                                <div class="col-sm fw-bold">
+                                    {{ account_key }}
+                                </div>
+                                <div class="col-sm">
+                                    {{ value }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                </div>
+                <br>
+
+                <div class="container">
+                    <h5>список позиций по счёту:</h5>
+                    {% for key, values in account.positions.items() %}
+                        {% if values %}
+                            <br>
+                            {{key}}:
+                            {% for value in values %}
+                                <div class="row">
+                                    <div class="col-sm fw-bold">
+                                        {{ value.name }}
+                                    </div>
+                                    <div class="col-sm">
+                                        {{ value.balance }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <br>
+                <br>
+                <form class="row" id="form{{ id }}" >
+                    <div class="col-8">
+                        <div class="input-group mb-3">
+                            <div style="width: 75px">
+                                <select class="input-group-text form-select sandbox-pay-in-cur" name="cur">
+                                    <option value="rub" selected>₽</option>
+                                    <option value="usd">$</option>
+                                </select>
+                            </div>
+
+                            <input type="number" value="0"  class="form-control ss sandbox-pay-in-ammount" name="ammount" placeholder="Введите сумму" aria-label="Amount">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <button type="button" class="btn btn-outline-success btn-block sandbox-pay-in" id="{{ id }}" ><i class="bi-cash-stack"></i> Пополнить</button>
+                    </div>
+                </form>
+             </div>
+        </div>
+
+   {% endfor %}
+</div>
+
+
+<script>
+// использование в качестве обработчика анонимной функции
+$('.sandbox-close').on('click', function() {
+    // действия, которые будут выполнены при наступлении события...
+    console.log($(this).val());
+    var sandbox_id = $(this).attr('id');
+
+    $.ajax({
+        type: "DELETE",
+        url: "/sandbox/" + sandbox_id,
+        cache: false,
+        success: function(responce){
+            console.log(responce);
+            location.reload();
+        }
+    });
+});
+
+
+$('form').submit(function (e) {
+    if ($('input').val() == 0) {
+         console.log($('this'));
+    }
+});
+
+
+$('.sandbox-pay-in').on('click', function() {
+    //console.log($(this).attr('id'));
+    //console.log($('.sandbox-pay-in-ammount').val());
+    //console.log($('.sandbox-pay-in-cur').val());
+
+    let sandbox_id = $(this).attr('id');
+    //let ammount = $('.sandbox-pay-in-ammount').val();
+    //let cur = $('.sandbox-pay-in-cur').val();
+
+    //let pay_in_data = {};
+    //pay_in_data["sandbox_id"] = sandbox_id;
+    //pay_in_data["ammount"] = ammount;
+    //pay_in_data["cur"] = cur;
+
+    //let pay_in_data2 = {
+    //    sandbox_id:sandbox_id,
+    //    ammount:ammount,
+    //    cur:cur
+    //};
+
+    //console.log( pay_in_data );
+    //console.log( pay_in_data2 );
+
+    var pay_in_data3 = {};
+    pay_in_data3["sandbox_id"] = sandbox_id;
+    $('#form' + sandbox_id).find('input, select' ).each(function() {
+        // добавим новое свойство к объекту $data
+        // имя свойства – значение атрибута name элемента
+        // значение свойства – значение свойство value элемента
+        pay_in_data3[this.name] = $(this).val();
+    });
+
+    console.log( pay_in_data3 );
+
+    $.ajax({
+        type: "POST",
+        url: "/sandbox/payin",
+        cache: false,
+        data: JSON.stringify(pay_in_data3),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(responce){
+            console.log(responce);
+            location.reload();
+        }
+    });
+
+location.reload(true);
+});
+
+//обработка иткрытия нового счета
+$('.sandbox-open').on('click', function() {
+    $.ajax({
+        type: "POST",
+        url: "/sandbox/",
+        cache: false,
+        success: function(responce){
+            console.log(responce);
+            location.reload();
+        }
+    });
+
+
+});
+
+//Запрет ввода всего кроме цифр
+$(".ss").keypress(function(event){
+    event = event || window.event;
+    if (event.charCode && event.charCode!=0  && (event.charCode < 48 || event.charCode > 57) )
+        return false;
+});
+
+
+</script>
+
+
+{% endblock %}

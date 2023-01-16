@@ -1,0 +1,32 @@
+version: '3'
+services:
+  fetch:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    container_name: tinvest_perevalov_fetch
+    command: python fetch.py
+    volumes:
+      - ../data:/data
+  trade:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    container_name: tinvest_perevalov_trade
+    command: python trade.py
+    volumes:
+      - ../data:/data
+  sqlite-web:
+    restart: unless-stopped
+    image: coleifer/sqlite-web
+    container_name: tinvest_perevalov_sqlite-web
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../data:/data
+    environment:
+      - SQLITE_DATABASE=$TINVEST_DB_NAME

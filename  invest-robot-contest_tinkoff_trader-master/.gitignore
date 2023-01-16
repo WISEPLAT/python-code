@@ -1,0 +1,17 @@
+log.txt
+error_log.txt
+token.txt
+sandbox_token.txt
+*.xls
+table*.txt
+delete_to_stop.txt
+
+__pycache__/
+CURVE_LEVEL/
+CURVE_LEVEL_H3L2/
+CURVE_LEVEL_H5L5/
+LOSS10/
+LOSS20/
+LOSS30/
+NCURVE4_3D_211/
+old/

@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2> Работа с стратегией. </h2>
+
+<h4> Настройка стратегии:</h4>
+
+
+<form class="row g-3" id="form">
+    <div class="col-12">
+        <label for="account_id"> Выберите счет:</label>
+        <select class="input-group-text form-select" id="account_id">
+            <option disabled>== Счета песочницы ==</option>
+            {% for id in sandbox_accounts %}
+                <option value="{{ id }}">{{ id }}</option>
+            {% endfor %}
+            <option disabled>== Реальные счета ==</option>
+
+        </select>
+        <small id="sandbox_idHelp" class="form-text text-muted">Счет на котором хотите торговать:</small>
+    </div>
+
+    <div class="col-12">
+        <label for="figi"> Выберите инструмент:</label>
+        <select class="input-group-text form-select" id="figi">
+            <option value="BBG004730N88" selected>SBER</option>
+            <option value="other" disabled>В разработке</option>
+        </select>
+        <small id="figiHelp" class="form-text text-muted">Инструмент которым хотите торговать:</small>
+    </div>
+    <div class="col-md-4">
+        <label for="window_slow"> window slow:</label>
+        <input type="number" value="26" class="form-control ss" id="window_slow" placeholder="n period long-term.">
+        <small id="slowHelp" class="form-text text-muted">Экспоненциальная скользящая средняя с длинным периодом  от цены</small>
+    </div>
+    <div class="col-md-4">
+        <label for="window_fast"> window fast:</label>
+        <input type="number" value="12" class="form-control ss" id="window_fast" placeholder="n period short-term.">
+        <small id="fastHelp" class="form-text text-muted">Экспоненциальная скользящая средняя с коротким периодом от цены</small>
+    </div>
+    <div class="col-md-4">
+        <label for="window_sign"> window sign:</label>
+        <input type="number" value="9" class="form-control ss" id="window_sign" placeholder="n period to signal.">
+        <small id="signHelp" class="form-text text-muted">Сглаживающая экспоненциальная скользящая средняя с коротким периодом от разницы двух остальных скользящих</small>
+    </div>
+
+    <div class="col-12">
+        <label for="timeframe">Выберите интервал свечей:</label>
+            <select class="input-group-text form-select" id="timeframe">
+                {% for key, val in timeframe.items() %}
+                    {% if key < 3 %}
+                        <option value="{{ key }}">{{ val }}</option>
+                    {% else %}
+                        <option value="{{ key }}" color="$yellow-300">{{ val }}      -== Недоступно для запуска ==-</option>
+                    {% endif %}
+                {% endfor %}
+        </select>
+        <small id="timeHelp" class="form-text text-muted">Запуск в SandBox будет производится максимим с 5 минутным интервалом свечей</small>
+
+    </div>
+    <div class="col-12">
+    </div>
+
+    <div class="col-12">
+        <button type="button" class="btn btn-outline-success btn-block macd-test"><i class="bi-tools"></i>
+            Тест на исторических данных
+        </button>
+        <button type="button" class="btn btn-outline-success btn-block macd-sb-start"><i
+                class="bi-caret-right"></i> Запустить в SandBox
+        </button>
+        <button type="button" class="btn btn-outline-success btn-block macd-start" disabled><i
+                class="bi-caret-right"></i> Запустить в Продакшен
+        </button>
+    </div>
+</form>
+
+<!-- Bootstrap 5 -->
+<div class="modal fade" id="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Результат теста:</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+$('.macd-test').on('click', function() {
+
+    var macd_data = {};
+    $('#form').find('input, select' ).each(function() {
+        // добавим новое свойство к объекту $data
+        // имя свойства – значение атрибута name элемента
+        // значение свойства – значение свойство value элемента
+        macd_data[this.id] = $(this).val();
+    });
+
+    console.log( macd_data );
+
+    $.ajax({
+        type: "POST",
+        url: "/stratgy/test",
+        cache: false,
+        data: JSON.stringify(macd_data),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(responce){
+            console.log(responce);
+            console.log(responce['count_operation']);
+
+            const modal = new bootstrap.Modal(document.querySelector('#modal'));
+            const elemModal = document.querySelector('#modal');
+
+            elemModal.querySelector('.modal-body').innerHTML = '<ul> Выполнено операций: ' + responce['count_operation'] + ' </ul>';
+            elemModal.querySelector('.modal-body').innerHTML += '<ul> Заработано: ' + responce['result'] + ' ' + responce['currency'] + '</ul>';
+
+            modal.show();
+
+
+<!--            location.reload();-->
+        }
+    });
+});
+
+
+$('.macd-sb-start').on('click', function() {
+
+    var macd_data = {};
+    $('#form').find('input, select' ).each(function() {
+        // добавим новое свойство к объекту $data
+        // имя свойства – значение атрибута name элемента
+        // значение свойства – значение свойство value элемента
+        macd_data[this.id] = $(this).val();
+    });
+
+    console.log( macd_data );
+
+    $.ajax({
+        type: "POST",
+        url: "/stratgy/sandbox",
+        cache: false,
+        data: JSON.stringify(macd_data),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(responce){
+            console.log(responce);
+
+<!--            location.reload();-->
+        }
+    });
+});
+
+
+
+</script>
+{% endblock %}

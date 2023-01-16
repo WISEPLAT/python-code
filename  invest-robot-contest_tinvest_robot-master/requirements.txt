@@ -1,0 +1,6 @@
+transformers==4.8.2
+pytz==2019.3
+scipy==1.4.1
+APScheduler==3.6.3
+feedparser==6.0.8
+tinkoff-investments

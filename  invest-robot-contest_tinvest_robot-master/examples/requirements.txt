@@ -1,0 +1,9 @@
+tinvest-robot-perevalov
+pytz
+transformers
+scipy
+APScheduler
+sqlalchemy
+feedparser
+tensorflow
+tinkoff-investments

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link href="{% static 'knowledge_base/css/navigation.css' %}" rel="stylesheet">
+    <link href="{% static 'knowledge_base/css/styles.css' %}" rel="stylesheet">
+
+    {% block links %}
+    {% endblock %}
+
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+<nav>
+  <ul>
+    <li><a href="{% url 'main_page' %}">Home</a></li>
+    <div class="centered">
+        <li><a  href="{% url 'info' %}">База знаний</a></li>
+        <li><a href="{% url 'welcome' %}">Торговля</a></li>
+        <li><a href="{% url 'backtest' %}">Бэктест</a></li>
+    </div>
+
+  </ul>
+</nav>
+{% block sidemenu %}
+{% endblock %}
+{% block main %}
+{% endblock %}
+</body>
+</html>

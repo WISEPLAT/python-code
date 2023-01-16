@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+    <div class="clear"></div>
+    <div class="content"></div>
+
+    <h2> Добро пожаловать в Tinkoff Invest Robot</h2>
+    <br>
+
+    {% for cat, msg in get_flashed_messages(True) %}
+        <div class="alert {{cat}}">{{msg}}</div>
+    {% endfor %}
+
+    <p> Ваш тариф: {{ user_info.tariff }} </p>
+    {% if user_info.qual_status %}
+        <p> Имеется статус квалифицированного инвестора. </p>
+    {% endif %}
+
+    Реальные счета:
+
+    <div class="accordion" id="accordionExample">
+        {% for id, account in user_info.accounts.items() %}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading{{ id }}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ id }}" aria-expanded="fasle" aria-controls="collapse{{ id }}">
+                        {{ account.account.name }} #{{ id }}
+                    </button>
+                </h2>
+                <div id="collapse{{ id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ id }}" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+
+                        <div class="container">
+                            {% for account_key, values in account.items() %}
+                                <div class="row">
+                                    <div class="col text-center fw-bold">
+                                        {{ account_key }}
+                                    </div>
+                                </div>
+                                {% for key, value in values.items() %}
+                                    <div class="row">
+                                        <div class="col-sm fw-bold">
+                                            {{ key }}
+                                        </div>
+                                        <div class="col-sm">
+                                            {{ value }}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                <div class="row">
+                                    <div class="col">
+                                        <br>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+    <br>
+{# задел на будущее
+    <div class="mb-3">
+        Счета песочницы:
+            {% if not sandbox in user_info  and not key in user_info.sandbox %}
+             <br>
+            <div class="alert alert-warning" role="alert">
+                Для работы с Песочницей добавьте в переменные окружения API_TOKEN_SANDBOX
+            </div>
+                {% endif %}
+    </div>
+#}
+
+    <div class="mb-3">
+        <ul class="list-group">
+             У вас имеется доступ до следующих инструментов:
+            <ul class="list-group">
+                {% for qualified in user_info.qualified_for_work_with %}
+                    <li class="list-group-item"> {{ qualified }}</il>
+                {% endfor %}
+            </ul>
+        </ul>
+    </div>
+
+{% endblock %}

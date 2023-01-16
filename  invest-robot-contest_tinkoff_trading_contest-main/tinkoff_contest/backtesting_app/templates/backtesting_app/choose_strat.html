@@ -1,0 +1,21 @@
+{% extends "knowledge_base\base.html" %}
+{% load static %}
+
+{% block head %}
+    <Title>Бэктест</Title>
+{% endblock %}
+
+{% block links %}
+<link href="{% static 'backtesting_app/css/form.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+        <div id="forms">
+            <form method="post" class="create-form">
+                {% csrf_token %}
+                {{ StrategyForm.as_p }}
+                <span>{{ error }}</span>
+                <button type="submit" class="sbm-btn">Применить</button>
+            </form>
+        </div>
+{% endblock %}

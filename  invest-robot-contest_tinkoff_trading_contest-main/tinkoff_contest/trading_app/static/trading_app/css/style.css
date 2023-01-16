@@ -1,0 +1,20 @@
+.choose-type {
+    position: absolute;
+    margin: 0 5px 0 5px;
+    width: auto;
+    height: auto;
+    left: 40%;
+    top: 30%;
+}
+
+.buttons {
+    display:inline-block;
+}
+
+.sbm-btn {
+
+}
+
+a {
+    text-decoration: none;
+}

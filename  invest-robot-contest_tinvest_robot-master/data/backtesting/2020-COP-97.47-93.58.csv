@@ -1,0 +1,3 @@
+operationType,price,balance,date
+BUY,65.22,32.25,2020-01-02
+SELL,61.33,93.58,2020-01-28

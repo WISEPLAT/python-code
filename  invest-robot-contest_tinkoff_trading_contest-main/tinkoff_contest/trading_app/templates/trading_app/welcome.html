@@ -1,0 +1,19 @@
+{% extends "knowledge_base/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link href="{% static 'backtesting_app/css/form.css' %}" rel="stylesheet">
+    <link href="{% static 'trading_app/css/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+    <div class="choose-type">
+        <div class="buttons">
+            <button class="sbm-btn"><a href="{% url 'trading' %}">Рынок</a></button>
+        </div>
+         <div class="buttons">
+            <button class="sbm-btn"><a href="{% url 'sandbox' %}">Песочница</a></button>
+        </div>
+    </div>
+
+{% endblock %}

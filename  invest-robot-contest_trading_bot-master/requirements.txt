@@ -1,0 +1,16 @@
+aiogram~=2.20
+tinkoff-investments
+ta~=0.10.1
+pandas~=1.4.2
+matplotlib~=3.5.2
+python-dotenv~=0.20.0
+aioschedule~=0.5.2
+dataframe_image
+bcrypt~=3.2.2
+tinkoff~=0.1.1
+pytz~=2022.1
+python-Levenshtein
+Crypto
+pycryptodome
+pycbrf~=1.1.0
+rsa~=4.8

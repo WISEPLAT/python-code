@@ -1,0 +1,10 @@
+site_name: Tinkoff Invest Trade Robot by karpp
+docs_dir: docs
+site_url: https://karpp.github.io/investRobot/
+repo_url: https://github.com/karpp/investRobot
+theme:
+  name: material
+  language: 'ru'
+  palette:
+    primary: black
+    accent: red

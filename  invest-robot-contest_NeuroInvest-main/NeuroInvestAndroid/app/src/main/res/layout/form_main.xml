@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/logo"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintWidth_percent="0.5"
+        android:contentDescription="@string/app_name"
+        />
+
+    <Button
+        android:visibility="gone"
+        android:id="@+id/pair1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sample_pair_name"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.7"/>
+
+    <Button
+        android:visibility="gone"
+        android:id="@+id/pair2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sample_pair_name"
+        android:layout_marginTop="@dimen/buttons_vertical_margins"
+        app:layout_constraintTop_toBottomOf="@id/pair1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.7"/>
+
+    <Button
+        android:visibility="gone"
+        android:id="@+id/pair3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sample_pair_name"
+        android:layout_marginTop="@dimen/buttons_vertical_margins"
+        app:layout_constraintTop_toBottomOf="@id/pair2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.7"/>
+
+    <Button
+        android:visibility="gone"
+        android:id="@+id/pair4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sample_pair_name"
+        android:layout_marginTop="@dimen/buttons_vertical_margins"
+        app:layout_constraintTop_toBottomOf="@id/pair3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.7"/>
+
+    <Button
+        android:visibility="gone"
+        android:id="@+id/pair5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sample_pair_name"
+        android:layout_marginTop="@dimen/buttons_vertical_margins"
+        app:layout_constraintTop_toBottomOf="@id/pair4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.7"/>
+
+    <Button
+        android:visibility="gone"
+        android:id="@+id/pair6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sample_pair_name"
+        android:layout_marginTop="@dimen/buttons_vertical_margins"
+        app:layout_constraintTop_toBottomOf="@id/pair5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.7"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

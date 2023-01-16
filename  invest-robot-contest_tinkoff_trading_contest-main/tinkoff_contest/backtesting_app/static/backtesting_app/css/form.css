@@ -1,0 +1,44 @@
+#forms {
+    position: absolute;
+    left: 40%;
+    top: 30%;
+}
+
+.form-input {
+    padding:10px;
+    border-radius:10px;
+    margin: 3px;
+    width: 320px;
+}
+
+.sbm-btn {
+  text-decoration: none;
+  display: block;
+  color: white;
+  padding: 20px 30px;
+  margin: 5px 0 0 5px;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-image: linear-gradient(to right, #a6f5c8 0%, #3cc97a 51%, #17a355 100%);
+  background-size: 200% auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+  transition: .5s;
+}
+.sbm-btn:hover {
+  background-position: right center;
+}
+
+.form-text {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.create-form {
+    display: flex;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 5px;
+}
